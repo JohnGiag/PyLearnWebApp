@@ -19,12 +19,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@^r1gphevx*qc6m7+1$3#5n4x14*ii%z&cp*k(3vp@0%z*cm2-'
+SECRET_KEY = SECRET_KEY = os.environ.get('SECRET_KEY','@^r1gphevx*qc6m7+1$3#5n4x14*ii%z&cp*k(3vp@0%z*cm2-')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['pylearn.herokuapp.com']
+ALLOWED_HOSTS = ['pylearn.herokuapp.co']
 
 
 
