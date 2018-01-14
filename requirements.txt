@@ -2,3 +2,4 @@ dj_database_url==0.4.2
 Django==1.11.4
 django_ace==1.0.3
 django_badges==1.0.0
+psycopg2==2.7.3
