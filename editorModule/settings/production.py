@@ -24,7 +24,7 @@ SECRET_KEY = SECRET_KEY = os.environ.get('SECRET_KEY','@^r1gphevx*qc6m7+1$3#5n4x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['pylearn.herokuapp.co']
+ALLOWED_HOSTS = ['pylearn.herokuapp.com']
 
 
 
