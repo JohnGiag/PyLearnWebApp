@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% load badges_tags %}
+    <div class="container">
+
+        <h1 class="card-header bg-dark text-white text-center "> Progress</h1>
+        <ul class="list-group">
+            {% for badge in badges %}
+
+                <li class="list-group-item">
+                    <div class="progressbar-title">
+                          <i class="fa fa-trophy level{{ badge.level }}" aria-hidden="true"></i>
+                        {{ badge }} : {{ badge.description }}
+
+                    </div>
+
+
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated"
+                             style="width:calc(({{ badge|progress:profile.user }}/{{ badge.meta_badge.target }})*100%)">{{ badge|progress:profile.user }}/{{ badge.meta_badge.target }}</div>
+                    </div>
+
+
+                </li>
+
+
+            {% empty %}
+
+                <li>Nada</li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+{% endblock %}

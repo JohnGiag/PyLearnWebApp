@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+
+        <div class="bd-example">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="Programming"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="1" class=""></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="2" class=""></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active caro">
+                        <a href="{% url 'codingExercise:exercise_list' %}" class="carousel-link">
+                            <img class="d-block w-100"
+                                 data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=Programming"
+                                 alt="First slide [800x400]"
+                                 data-holder-rendered="true">
+
+                            <div class="carousel-caption d-none d-md-block">
+                                <h3>Coding Exercises</h3>
+                                <p>Practice coding in python online</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a class="carousel-link" href="{% url 'quiz:quiz_list' %} ">
+                            <img class="d-block w-100"
+                                 data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Quiz"
+                                 alt="Second slide [800x400]"
+                                 data-holder-rendered="true">
+
+
+                            </img>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h3>Quizes</h3>
+                                <p>Test your knowledge.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a class="carousel-link" href="{% url 'leaderboard:leaderboard_list' %} ">
+                            <img class="d-block w-100"
+                                 data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Scores"
+                                 alt="Third slide [800x400]"
+                                 data-holder-rendered="true">
+
+                            <div class="carousel-caption d-none d-md-block">
+                                <h3>Leaderdoard</h3>
+
+
+                                <p>Check your progress compared to other users</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
+
+
+{% block scripts %}
+    <script type="text/javascript" src="https://cdn.rawgit.com/imsky/holder/master/holder.js"></script>
+
+{% endblock %}

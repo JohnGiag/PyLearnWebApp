@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block extrahead %}
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/quiz.css' %}">
+
+{% endblock %}
+
+
+{% block title %}Results{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="card-deck">
+
+            <div class="card card-inverse card-primary mb-3 text-center">
+                <h3 class="card-header bg-success text-white ">Correct Answers</h3>
+                <div class="card-block">
+
+                    {% for k,v in correct %}
+                        <p class="card-text">The correct answer for question {{ k }} is {{ v }}</p>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <div class="card card-outline-primary text-center ">
+                <h3 class="card-header bg-warning text-white">Your Answers</h3>
+                <div class="card-block">
+
+                    {% for k,v in userAnswers %}
+                        <p class="card-text">Your answer for question {{ k }} was {{ v }}</p>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="card card-outline-success card-inverse text-center ">
+            <h3 class="card-header bg-info text-white">Your Score</h3>
+            <div class="card-block">
+
+
+                <p class="card-text">
+                    You scored {{ correct_percentage }}%
+                    {% if newHighsScore and not first_attempt %}which is an improvement over your previous score of
+                        {{ prevScore }}
+                        %{% endif %}
+                    {% if not newHighsScore and not first_attempt %}which is not an improvement over your previous score
+                        of
+                        {{ prevScore }}%{% endif %}
+                </p>
+
+
+            </div>
+        </div>
+
+        <br>
+
+
+        <div class="row">
+            <div class="col-sm-12 offset-sm-1 text-center">
+
+                <a href="{% url 'home' %}">
+                    <button class="btn btn-primary">Return to Home</button>
+                </a>
+
+            </div>
+
+        </div>
+
+        <br>
+
+
+        <div class="row">
+            <div class="col-sm-12 offset-sm-1 text-center">
+
+                <a href="{% url 'quiz:quiz_list' %}">
+                    <button class="btn btn-primary">More quizes</button>
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+{% endblock %}

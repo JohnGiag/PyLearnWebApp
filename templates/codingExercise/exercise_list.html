@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+
+        <h1 class="card-header bg-dark text-white text-center "> Exercises</h1>
+        <ul class="list-group">
+            {% for exercise in object_list %}
+                <li class="list-group-item">
+                    {% if exercise.name in completed_exercises %}
+                        <i class="fa fa-check-circle-o fa-2x" aria-hidden="true" style="color: green;"></i>
+                    {% else %}&nbsp;
+
+                        <i class="fa fa-question-circle-o fa-2x" aria-hidden="true" style="color: orange;"></i>
+                    {% endif %}&nbsp;
+
+                    <a href="{% url 'codingExercise:exercise' pk=exercise.id %}">{{ exercise.name }} </a>
+
+                </li>
+
+
+            {% empty %}
+                <li>No exercises yet.</li>
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+{% endblock %}

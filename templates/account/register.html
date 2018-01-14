@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block extrahead %}
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+
+{% endblock %}
+
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="login-container">
+
+            <div id="output">
+                {% for non_field_error in form.non_field_errors %}
+                    <div id="registeralert" class="alert alert-danger">
+
+                        {{ non_field_error }}
+
+                    </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="avatar">
+                <img alt="User Pic"
+                     src="https://aminoapps.com/static/img/user-icon-placeholder.png"
+                     id="profile-image1" class="rounded-circle img-fluid">
+
+            </div>
+            <div class="form-box">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+
+                            <div>
+                                {{ field }}
+                            </div>
+                            {% if field.help_text %}
+                                <p>{{ field.help_text }}</p>
+
+                            {% endif %}
+                            {% for field_error in field.errors %}
+                                <div id="registeralert" class="alert alert-danger">
+
+                                    {{ field_error }}
+
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    <button class="btn btn-primary btn-block login" type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+
+    {% url 'home' as home %}
+
+
+    <a class="navbar-brand" href="#">PyLearn</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item {% if request.path == home %}active{% endif %}">
+
+                <a class="nav-link" href="{% url 'home' %}"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp;
+                    Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item {% if  'ce' in request.path %}active{% endif %}">
+                <a class="nav-link " href="{% url 'codingExercise:exercise_list' %}"><i class="fa fa-code"
+                                                                                        aria-hidden="true"></i>&nbsp;Coding
+                    exercises</a>
+            </li>
+            <li class="nav-item {% if  'quiz' in request.path %}active{% endif %}">
+                <a class="nav-link " href="{% url 'quiz:quiz_list' %}"><i class="fa fa-question-circle-o"
+                                                                          aria-hidden="true"></i>&nbsp;Quizes</a>
+            </li>
+            <li class="nav-item {% if  'leaderboard' in request.path %}active{% endif %}">
+                <a class="nav-link " href="{% url 'leaderboard:leaderboard_list' %}"><i class="fa fa-list-ol"
+                                                                                        aria-hidden="true"></i>&nbsp;Leaderboard</a>
+            </li>
+
+
+            {% if user.is_authenticated %}
+                <li class="nav-item {% if 'profile' in request.path %}active{% endif %}">
+                    <a class="nav-link " href="{% url 'profile' user.profile.id %}"><i class="fa fa-user-o"
+                                                                                       aria-hidden="true"></i>
+                        &nbsp;{{ user.get_username }}</a>
+
+
+                </li>
+
+                <li class="nav-item {% if 'progress' in request.path %}active{% endif %}">
+
+                    <a class="nav-link " href="{% url 'progress' user.profile.id %}"> <i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;My Progress</a>
+                </li>
+
+                <li>
+                    <a class="nav-link " href="{% url 'logout' %}?next={{ request.path }}">Logout</a>
+                </li>
+            {% else %}
+                <li><a class="nav-link" href="{% url 'login' %}?next={{ request.GET.next }}">Login</a></li>
+
+                <li><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+        </ul>
+
+    </div>
+
+
+</nav>
