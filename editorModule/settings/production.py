@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = SECRET_KEY = os.environ.get('SECRET_KEY','@^r1gphevx*qc6m7+1$3#5n4x14*ii%z&cp*k(3vp@0%z*cm2-')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['pylearn.herokuapp.com']
 
