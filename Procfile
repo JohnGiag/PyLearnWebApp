@@ -1,0 +1,1 @@
+web: gunicorn editorModule.wsgi --log-file -
