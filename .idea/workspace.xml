@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d5519a5-6945-42b0-83cf-bf4c0236339d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/account/meta_badges.py" afterPath="$PROJECT_DIR$/account/meta_badges.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/editorModule/settings/production.py" afterPath="$PROJECT_DIR$/editorModule/settings/production.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,17 +65,17 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="production.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="production.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/editorModule/settings/production.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+            <state relative-caret-position="408">
+              <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="meta_badges.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="meta_badges.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/account/meta_badges.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
@@ -129,7 +129,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>quiz</find>
       <find>active</find>
       <find>login</find>
       <find>info</find>
@@ -140,6 +139,7 @@
       <find>&lt;code&gt;</find>
       <find>&lt;/code&gt;</find>
       <find>&lt;code</find>
+      <find>quiz</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;pre class=&quot;python&quot;&gt;</replace>
@@ -201,8 +201,8 @@
         <option value="$PROJECT_DIR$/editorModule/settings/base.py" />
         <option value="$PROJECT_DIR$/editorModule/settings/local.py" />
         <option value="$PROJECT_DIR$/editorModule/settings/__init__.py" />
-        <option value="$PROJECT_DIR$/editorModule/settings/production.py" />
         <option value="$PROJECT_DIR$/account/meta_badges.py" />
+        <option value="$PROJECT_DIR$/editorModule/settings/production.py" />
       </list>
     </option>
   </component>
@@ -1026,18 +1026,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/editorModule/settings/production.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/account/meta_badges.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="132" column="12" lean-forward="true" selection-start-line="132" selection-start-column="12" selection-end-line="132" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editorModule/settings/production.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
           <folding />
         </state>
       </provider>
