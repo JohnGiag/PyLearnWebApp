@@ -281,6 +281,6 @@ class MasterAchievementHunter(BaseAchievementHunter):
     ###################################################
     # subtract base classes and "phantom achievement" #
     ###################################################
-    target = Badge.objects.exclude(level__iexact="5").count()
+    target =25 #Badge.objects.exclude(level__iexact="5").count()
 
 
