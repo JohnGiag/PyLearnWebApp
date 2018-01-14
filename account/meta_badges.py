@@ -175,7 +175,7 @@ class TriviaVeteran(BaseCompletedQuiz):
     title = "Tivia Veteran"
     description = "Complete 5 quizes"
     level = "2"
-    target = 5
+    target = 3
 
 
 class TriviaMaster(BaseCompletedQuiz):
@@ -184,7 +184,7 @@ class TriviaMaster(BaseCompletedQuiz):
     title = "Tivia Master"
     description = "Complete 10 quizes"
     level = "3"
-    target = 10
+    target = 5
 
 
 class TriviaLegend(BaseCompletedQuiz):
@@ -193,7 +193,7 @@ class TriviaLegend(BaseCompletedQuiz):
     title = "Trivia Legend"
     description = "Complete all the quizes"
     level = "4"
-    target = Quiz.objects.all().count()
+    target =10# Quiz.objects.all().count()
 
 
 class TriviaHero(MetaBadge):
