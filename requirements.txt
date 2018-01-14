@@ -4,7 +4,7 @@ coverage==4.4.1
 dj-database-url==0.4.2
 Django==1.11.4
 django-ace==1.0.3
-django-badges==1.0.0
+-e git://github.com/JohnGiag/django-badges#egg=django-badges
 django-crispy-forms==1.6.1
 docopt==0.6.2
 future==0.16.0
