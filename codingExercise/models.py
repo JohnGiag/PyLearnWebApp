@@ -5,6 +5,7 @@ from django.db import models
 
 
 class Exercise(models.Model):
+    order = models.IntegerField(blank=True,null=True)
     name = models.CharField(max_length=100, null=False, blank=False, )
     instructions = models.TextField(null=False, blank=False)
     test_imports = models.TextField(blank=True)
@@ -14,3 +15,6 @@ class Exercise(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ['order']
