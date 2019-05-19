@@ -193,7 +193,7 @@ class TriviaLegend(BaseCompletedQuiz):
     title = "Trivia Legend"
     description = "Complete all the quizes"
     level = "4"
-    target = Quiz.objects.all().count()
+    target =20# Quiz.objects.all().count()
 
 
 class TriviaHero(MetaBadge):
@@ -281,6 +281,6 @@ class MasterAchievementHunter(BaseAchievementHunter):
     ###################################################
     # subtract base classes and "phantom achievement" #
     ###################################################
-    target = Badge.objects.exclude(level__iexact="5").count()
+    target =17# Badge.objects.exclude(level__iexact="5").count()
 
 
