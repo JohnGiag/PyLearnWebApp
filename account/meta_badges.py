@@ -130,7 +130,7 @@ class MasterCoder(BaseCompletedExercise):
     title = "Master Coder"
     description = "Complete all the coding exercises"
     level = "4"
-    target =20 # Exercise.objects.all().count()
+    target = Exercise.objects.all().count()
 
 
 ##Completed quizes achivements
@@ -193,7 +193,7 @@ class TriviaLegend(BaseCompletedQuiz):
     title = "Trivia Legend"
     description = "Complete all the quizes"
     level = "4"
-    target =20# Quiz.objects.all().count()
+    target = Quiz.objects.all().count()
 
 
 class TriviaHero(MetaBadge):
@@ -281,6 +281,6 @@ class MasterAchievementHunter(BaseAchievementHunter):
     ###################################################
     # subtract base classes and "phantom achievement" #
     ###################################################
-    target =17# Badge.objects.exclude(level__iexact="5").count()
+    target = Badge.objects.exclude(level__iexact="5").count()
 
 
