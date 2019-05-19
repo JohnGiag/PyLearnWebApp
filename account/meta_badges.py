@@ -130,7 +130,7 @@ class MasterCoder(BaseCompletedExercise):
     title = "Master Coder"
     description = "Complete all the coding exercises"
     level = "4"
-    target = Exercise.objects.all().count()
+    target =20# Exercise.objects.all().count()
 
 
 ##Completed quizes achivements
