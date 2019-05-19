@@ -38,11 +38,12 @@ class Profile(models.Model):
             completed_exercises = CompletedExercise.objects.filter(userProfile=self)
         return completed_exercises
 
-
+    def get_num_of_completed_exercises(self):
+        return CompletedExercise.objects.filter(userProfile=self).distinct().count()
 
     def setAvgQuizSore(self, newScore):
         self.totalQuizScore += newScore
-        tmpCompletedQuizes = self.num_of_copmleted_quizes if self.num_of_copmleted_quizes > 0 else 1
+        tmpCompletedQuizes = self.num_of_completed_quizes if self.num_of_completed_quizes > 0 else 1
         self.quizAvgScore = self.totalQuizScore / tmpCompletedQuizes
 
 
@@ -50,7 +51,7 @@ class Profile(models.Model):
 
 
 class CompletedQuiz(models.Model):
-    userProfile = models.ForeignKey(Profile)
+    userProfile = models.ForeignKey(Profile,on_delete=models.CASCADE)
     quiz_name = models.CharField(max_length=50, blank=True, null=True)
     score = models.CharField(max_length=10,default="0")
     date = models.DateTimeField(default=datetime.now)
@@ -65,8 +66,9 @@ class CompletedQuiz(models.Model):
 
 
 class CompletedExercise(models.Model):
-    userProfile = models.ForeignKey(Profile)
+    userProfile = models.ForeignKey(Profile,on_delete=models.CASCADE)
     exercise_name = models.CharField(max_length=50, blank=True, null=True)
+    answer = models.TextField()
     date = models.DateTimeField(default=datetime.now)
 
     def __str__(self):

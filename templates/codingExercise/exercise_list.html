@@ -2,29 +2,36 @@
 
 {% block content %}
 
+
     <div class="container">
+        {% for chapter in object_list %}
+            <div class="chapter-container">
+                <h1 class="card-header bg-dark text-white text-center "> {{ chapter }}</h1>
+                <ul class="list-group">
 
-        <h1 class="card-header bg-dark text-white text-center "> Exercises</h1>
-        <ul class="list-group">
-            {% for exercise in object_list %}
-                <li class="list-group-item">
-                    {% if exercise.name in completed_exercises %}
-                        <i class="fa fa-check-circle-o fa-2x" aria-hidden="true" style="color: green;"></i>
-                    {% else %}&nbsp;
+                    {% for exercise in chapter.exercise_set.values %}
+                        <li class="list-group-item">
+                            {% if exercise.name in completed_exercises %}
+                                <i class="fa fa-check-circle-o fa-2x" aria-hidden="true" style="color: green;"></i>
+                            {% else %}&nbsp;
 
-                        <i class="fa fa-question-circle-o fa-2x" aria-hidden="true" style="color: orange;"></i>
-                    {% endif %}&nbsp;
+                                <i class="fa fa-question-circle-o fa-2x" aria-hidden="true" style="color: orange;"></i>
+                            {% endif %}&nbsp;
 
-                    <a href="{% url 'codingExercise:exercise' pk=exercise.id %}">{{ exercise.name }} </a>
+                            <a href="{% url 'codingExercise:exercise' pk=exercise.id %}">{{ exercise.name }} </a>
 
-                </li>
+                        </li>
 
 
-            {% empty %}
-                <li>No exercises yet.</li>
-            {% endfor %}
 
-        </ul>
+
+                    {% empty %}
+                        <li>No exercises yet.</li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        {% endfor %}
 
     </div>
 

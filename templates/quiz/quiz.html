@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="{% static 'css/quiz.css' %}">
 
+
 {% endblock %}
 
 {% block title %}{{ quiz.name }}{% endblock %}
@@ -17,14 +18,14 @@
 
         <form action="" method="post">
             {% csrf_token %}
-            {% for question in quiz.questions.all %}
+            {% for question in quiz.question_set.all %}
 
 
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h3><span class="label label-warning"
-                                      id="qid">{{ question.id }}. </span>{{ question.question_text }}</h3>
+                                      id="qid">{{ question.id }}. </span>{{ question.question_text|safe }}</h3>
                         </div>
 
 
@@ -77,5 +78,11 @@
 
 
 
+
+{% endblock %}
+
+{% block scripts %}
+
+     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 
 {% endblock %}

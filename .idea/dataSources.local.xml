@@ -2,33 +2,40 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="db" uuid="6bbe2362-2eaf-48f0-9d8d-4f5a7e832ce6">
-      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" />
+      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" dbms="SQLITE" exact-version="3.16.1" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <auth-required>false</auth-required>
       <introspection-schemas>*:main</introspection-schemas>
     </data-source>
     <data-source name="db [2]" uuid="02ed4a62-82f8-4892-bd7c-c78c43ff0fae">
-      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" />
+      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" dbms="SQLITE" exact-version="3.16.1" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <auth-required>false</auth-required>
       <introspection-schemas>*:main</introspection-schemas>
     </data-source>
     <data-source name="db.sqlite3" uuid="658eeaf2-b941-43d4-ba65-01f808117b19">
-      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" />
+      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" dbms="SQLITE" exact-version="3.16.1" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <auth-required>false</auth-required>
       <introspection-schemas>*:main</introspection-schemas>
     </data-source>
     <data-source name="db2.sqlite3" uuid="0aec917e-75dd-4e9a-b607-2640c30963e2">
-      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" />
+      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" dbms="SQLITE" exact-version="3.16.1" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <auth-required>false</auth-required>
       <introspection-schemas>*:main</introspection-schemas>
     </data-source>
     <data-source name="db3.sqlite3" uuid="3f24e96c-53ac-4cf5-9217-9816027fab74">
-      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" />
+      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" dbms="SQLITE" exact-version="3.16.1" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <auth-required>false</auth-required>
+      <introspection-schemas>*:main</introspection-schemas>
+    </data-source>
+    <data-source name="db.sqlite3 [2]" uuid="ab692176-6100-444d-95dd-0278e3cb8688">
+      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" dbms="SQLITE" exact-version="3.16.1" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <auth-required>false</auth-required>

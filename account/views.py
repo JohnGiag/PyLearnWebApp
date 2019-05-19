@@ -2,11 +2,11 @@ from badges.models import Badge
 from django.contrib.auth import authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import login
-from django.http import HttpResponseForbidden, HttpResponseNotFound
+from django.http import HttpResponseForbidden
 from django.shortcuts import render
 from django.views.generic import CreateView, DetailView
 
-from account.models import Profile
+from account.models import Profile, CompletedExercise
 from .forms import RegisterForm
 
 
@@ -41,16 +41,13 @@ class UserProfileView(LoginRequiredMixin, DetailView):
     template_name = 'account/profile.html'
     context_object_name = 'profile'
 
-   # def get_context_data(self, **kwargs):
-   #     context = super(UserProfileView, self).get_context_data(**kwargs)
-   #     # userObject = User.objects.get(id=self.kwargs['pk'])
-    #    profileObject = Profile.objects.get(id=self.kwargs['pk'])
-    #    completed_quizes = profileObject.getCompletedQuizes(False)
-#
-    #    completed_exercises = profileObject.getCompletedExercises(False)
-    #    context['completed_quizes'] = completed_quizes
-     #   context['completed_exercises'] = completed_exercises
-    #    return context
+    def get_context_data(self, **kwargs):
+        context = super(UserProfileView, self).get_context_data(**kwargs)
+        profileObject = Profile.objects.get(user__username=self.request.user)
+        completed_exercises = CompletedExercise.objects.filter(userProfile=profileObject).values_list('exercise_name',flat=True).distinct()
+        # context['completed_quizes'] = completed_quizes
+        context['completed_exercises'] = completed_exercises
+        return context
 
 
 class ProgressView(LoginRequiredMixin, DetailView):

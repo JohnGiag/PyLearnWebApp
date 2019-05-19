@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^ce/', include('codingExercise.urls')),
     url(r'^account/', include('account.urls')),
     url(r'^quiz/', include('quiz.urls')),
+    url(r'^example/', include('examples.urls')),
     url(r'^leaderboard/', include('leaderboard.urls')),
     url(r'^', TemplateView.as_view(template_name='home.html'), name='home'),
     url(r'^badges/', include('badges.urls')),

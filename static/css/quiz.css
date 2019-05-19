@@ -42,11 +42,18 @@ label .glyphicon {
 
 .modal-header {
     background-color: transparent;
-    color: inherit
+    color: inherit;
+    overflow-x:auto;
+
 }
 
 .modal-body {
-    min-height: 205px
+    min-height: 205px;
+    width: auto;
+
+    max-height: 600px
+
+
 }
 
 
@@ -57,3 +64,9 @@ label .glyphicon {
     border-color: #8064A2;
 }
 
+
+pre.prettyprint {
+
+    font-size: small;
+
+}

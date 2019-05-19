@@ -1,6 +1,7 @@
 body {
     padding-top: 5rem;
     background-image: url('/static/images/bg2.png');
+    margin-bottom: 100px;
 }
 
 table {
@@ -91,3 +92,19 @@ tr:nth-child(even) {
     }
 
 }
+
+.completed-list{
+    margin-top: 100px ;
+
+}
+
+.prev-solultion{
+    text-align: center;
+
+}
+
+.chapter-container{
+    margin-bottom: 15px ;
+
+}
+

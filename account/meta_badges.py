@@ -90,7 +90,7 @@ class BaseCompletedExercise(MetaBadge):
         return instance.user
 
     def get_progress(self, user):
-        progress = self.target if user.profile.num_of_copmleted_exercises >= self.target else user.profile.num_of_copmleted_exercises
+        progress = self.target if user.profile.get_num_of_completed_exercises() >= self.target else user.profile.get_num_of_completed_exercises()
         return progress
 
     def check_exercises(self, instance):

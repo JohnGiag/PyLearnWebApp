@@ -86,11 +86,8 @@
                             </div>
 
                             <ul>
-                                {% if not profile.completedexercise_set.all %}
-                                    No  completed exercises.
 
-                                {% endif %}
-                                {% for exercise in profile.completedexercise_set.all %}
+                                {% for exercise in completed_exercises %}
                                     <li>
                                         {{ exercise }}
                                     </li>

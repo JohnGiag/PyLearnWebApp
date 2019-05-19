@@ -61,6 +61,35 @@
             </div>
         </div>
 
+        <div class="container completed-list">
+            <div class="card-header bg-dark text-center text-white accordion">
+                <h4>Previous Solutions</h4>
+            </div>
+
+
+            <ul class="list-group">
+
+                {% for exercise in user.profile.completedexercise_set.all %}
+
+                    {% if ex.name == exercise.exercise_name %}
+                        <li class="list-group-item prev-solultion">
+                            {{ exercise.answer|safe }}
+                        </li>
+                    {% endif %}
+
+                {% empty %}
+                    <li class="list-group-item">
+                        No solutions yet
+                    </li>
+                {% endfor %}
+
+
+            </ul>
+
+
+        </div>
+
+
         <div class="alert alert-success" role="alert" id="success-bar">
             Congratulations!Move on to the next exercise
             <input class="btn btn-success" type="submit" form="codeForm" id="next-exercise" value="Next">
@@ -128,6 +157,12 @@
 
         #bind the run function the the button runCode
         document['runCode'].bind('click',run)
+
+
+
+
+
+
 
 
 

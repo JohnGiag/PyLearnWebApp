@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'codingExercise',
     'django_ace',
     'account',
+    'examples',
     'quiz',
     'leaderboard',
     'badges',

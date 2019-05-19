@@ -37,6 +37,9 @@
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db2.sqlite3</jdbc-url>
+      <explain-plan-config>
+        <provider>com.intellij.database.plan.db2.Db2ExplainPlanProvider</provider>
+      </explain-plan-config>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>
@@ -46,6 +49,15 @@
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db3.sqlite3</jdbc-url>
+      <driver-properties>
+        <property name="enable_load_extension" value="true" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="db.sqlite3 [2]" uuid="ab692176-6100-444d-95dd-0278e3cb8688">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../PodCollector\db.sqlite3</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>

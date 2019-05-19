@@ -16,6 +16,8 @@
 
     <div class="container">
 
+
+
         <div class="card-deck">
 
             <div class="card card-inverse card-primary mb-3 text-center">
@@ -23,7 +25,7 @@
                 <div class="card-block">
 
                     {% for k,v in correct %}
-                        <p class="card-text">The correct answer for question {{ k }} is {{ v }}</p>
+                        <p class="card-text">The correct answer for question {{ k|safe }} is {{ v }}</p>
 
                     {% endfor %}
 
@@ -35,7 +37,7 @@
                 <div class="card-block">
 
                     {% for k,v in userAnswers %}
-                        <p class="card-text">Your answer for question {{ k }} was {{ v }}</p>
+                        <p class="card-text">Your answer for question {{ k|safe }} was {{ v }}</p>
 
                     {% endfor %}
 

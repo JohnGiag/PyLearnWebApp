@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views.generic import DetailView, ListView
 
 from account.models import Profile, CompletedQuiz
+from codingExercise.models import Chapter
 from .models import Quiz
 
 
@@ -11,14 +12,13 @@ from .models import Quiz
 
 
 class QuizListView(LoginRequiredMixin, ListView):
-    model = Quiz
+    model = Chapter
     template_name = 'quiz/quiz_list.html'
-    context_object_name = 'quiz_list'
 
     def get_context_data(self, **kwargs):
         context = super(QuizListView, self).get_context_data(**kwargs)
-        profileObject = Profile.objects.get(user__username=self.request.user)
-        completed_quizes = profileObject.getCompletedQuizes(True)
+        profile_object = Profile.objects.get(user__username=self.request.user)
+        completed_quizes = profile_object.getCompletedQuizes(True)
         context['active'] = 'quiz'
         context['completed_quizes'] = completed_quizes
         return context
@@ -42,22 +42,26 @@ class QuizView(LoginRequiredMixin, DetailView):
     def post(self, *args, **kwargs):
         first_attempt = False
 
-        current_quiz = Quiz.objects.filter(id=str(self.kwargs['pk']))
         # get quiz name
-        for quiz in current_quiz.values('name'):
-            current_quiz_name = quiz['name']
+        current_quiz = Quiz.objects.filter(id=str(self.kwargs['pk']))
+        current_quiz_name = current_quiz.values('name')[0]['name']
 
         qn = 1
         correct = {}  # dict with {QuestionName : correct answer} pairs
-        for question in current_quiz.values('questions__correct_answer'):
-            correct.update({"".join(("q", str(qn))): question['questions__correct_answer']})
+        for question_text, correct_answer in zip(current_quiz.values('question__question_text'),
+                                                 current_quiz.values('question__correct_answer')):
+            correct.update({question_text['question__question_text']: correct_answer['question__correct_answer']})
             qn += 1
 
         userAnswers = {}
         correct_count = 0
-        for i in self.request.POST:
-            if 'q' in i:
 
+        for i in self.request.POST:
+            # print(i)
+
+            if i.startswith('Q'):
+                # print(i)
+                #
                 if str(self.request.POST[i]) == correct[i]:
                     correct_count += 1  # count correct answers
                 userAnswers.update({i: self.request.POST[i]})
@@ -67,36 +71,32 @@ class QuizView(LoginRequiredMixin, DetailView):
         # check if quiz completed previously
 
         profileObject = Profile.objects.get(user__username=self.request.user)
-        previous_score_query = CompletedQuiz.objects.filter(userProfile=profileObject, quiz_name=current_quiz_name)
-        if previous_score_query.count() != 0:
-            previous_attempt = CompletedQuiz.objects.get(userProfile=profileObject, quiz_name=current_quiz_name)
-            previous_attempt_score = previous_attempt.score
-            newHighscore = False
-            if correct_percentage > float(previous_attempt.score):  # replace when new score is better
-                newHighscore = True
-                # delete previous attempt
-                previous_attempt.delete()
-                # save new attempt
 
-                quiz_score = CompletedQuiz(userProfile=profileObject, quiz_name=current_quiz_name,
-                                           score=str(correct_percentage))
-                profileObject.save()
-                quiz_score.save()
-        else:  # first attempt
+        completed_quiz, created = CompletedQuiz.objects.get_or_create(userProfile=profileObject,
+                                                                      quiz_name=current_quiz_name)
+        print(completed_quiz)
+        if created:
+            completed_quiz.save()
+            # first attempt
             first_attempt = True
             previous_attempt_score = 0
             newHighscore = False
             # save new attempt
+
             profileObject.num_of_copmleted_quizes += 1
             profileObject.setAvgQuizSore(correct_percentage)
             profileObject.points += correct_percentage
 
-            quiz_score = CompletedQuiz(userProfile=profileObject, quiz_name=current_quiz_name,
-                                       score=str(correct_percentage))
+            completed_quiz.score = str(correct_percentage)
             profileObject.save()
-            quiz_score.save()
-
-        # user.completed_quizes.add(quiz_score)
+            completed_quiz.save()
+        else:
+            previous_attempt_score = completed_quiz.score
+            newHighscore = False
+            if correct_percentage > float(previous_attempt_score):  # replace when new score is better
+                newHighscore = True
+                completed_quiz.score = str(correct_percentage)
+                completed_quiz.save()
 
         context = {
             'quiz': current_quiz,
