@@ -43,7 +43,7 @@ class Profile(models.Model):
 
     def setAvgQuizSore(self, newScore):
         self.totalQuizScore += newScore
-        tmpCompletedQuizes = self.num_of_completed_quizes if self.num_of_completed_quizes > 0 else 1
+        tmpCompletedQuizes = self.user.profile.num_of_copmleted_quizes if self.user.profile.num_of_copmleted_quizes > 0 else 1
         self.quizAvgScore = self.totalQuizScore / tmpCompletedQuizes
 
 

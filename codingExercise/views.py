@@ -12,13 +12,13 @@ from .models import Exercise, Chapter
 
 
 
+
 class CodingExerciseListView(LoginRequiredMixin, ListView):
     model = Chapter
     template_name = 'codingExercise/exercise_list.html'
 
     def get_context_data(self, **kwargs):
         context = super(CodingExerciseListView, self).get_context_data(**kwargs)
-        # userObject = User.objects.get(username=self.request.user)
         profileObject = Profile.objects.get(user__username=self.request.user)
         completed_exercises = profileObject.getCompletedExercises(True)
         context['completed_exercises'] = completed_exercises
@@ -70,8 +70,6 @@ class CodingExerciseDetailView(LoginRequiredMixin, DetailView):
         form = ExerciseForm()
         context['form'] = form
         return context
-
-
 
         # if self.request.method == 'POST':
         #  form = ExerciseForm(self.request.POST)
