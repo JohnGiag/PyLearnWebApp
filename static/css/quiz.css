@@ -54,6 +54,11 @@ label .glyphicon {
     max-height: 600px
 
 
+
+}
+
+.question-text-box {
+    overflow: scroll;
 }
 
 
