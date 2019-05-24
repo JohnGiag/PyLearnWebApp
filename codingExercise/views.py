@@ -61,7 +61,9 @@ class CodingExerciseDetailView(LoginRequiredMixin, DetailView):
 
         next_pk = int(kwargs['pk']) + 1
         if next_pk <= int(Exercise.objects.all().count()):
-            return HttpResponseRedirect(str(next_pk))
+            # next_pk = int(kwargs['pk']) + 1
+            # return HttpResponseRedirect(str(next_pk))
+            return redirect('codingExercise:exercise_list')
         else:
             return redirect('codingExercise:finished')
 

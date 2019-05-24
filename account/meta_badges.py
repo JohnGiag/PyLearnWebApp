@@ -56,18 +56,18 @@ class AdvancedPointsCollector(BasePointsCollector):
     id = "AdvancedPointsCollector"
 
     title = "Advanced Points Collector"
-    description = "Collected 500 points"
+    description = "Collected 300 points"
     level = "3"
-    target = 500
+    target = 300
 
 
 class MasterPointsCollector(BasePointsCollector):
     id = "MasterPointsCollector"
 
     title = "Master Points Collector"
-    description = "Collected 1000 points"
+    description = "Collected 500 points"
     level = "4"
-    target = 1000
+    target = 500
 
 
 ##Completed coding execises achivements
@@ -184,7 +184,7 @@ class TriviaMaster(BaseCompletedQuiz):
     title = "Tivia Master"
     description = "Complete 10 quizes"
     level = "3"
-    target = 10
+    target = 7
 
 
 class TriviaLegend(BaseCompletedQuiz):
