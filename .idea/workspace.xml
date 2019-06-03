@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4d5519a5-6945-42b0-83cf-bf4c0236339d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/editorModule/settings/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/editorModule/settings/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+            <state relative-caret-position="391">
+              <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -90,7 +89,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/editorModule/settings/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
@@ -201,12 +200,12 @@
         <option value="$PROJECT_DIR$/templates/codingExercise/exercise.html" />
         <option value="$PROJECT_DIR$/editorModule/settings/base.py" />
         <option value="$PROJECT_DIR$/templates/examples/example.html" />
-        <option value="$PROJECT_DIR$/editorModule/settings/__init__.py" />
         <option value="$PROJECT_DIR$/examples/views.py" />
+        <option value="$PROJECT_DIR$/editorModule/settings/__init__.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="650" />
     <option name="y" value="-14" />
     <option name="width" value="960" />
@@ -643,12 +642,12 @@
       <workItem from="1558684674591" duration="6590000" />
       <workItem from="1558777385978" duration="610000" />
       <workItem from="1559463450855" duration="10187000" />
-      <workItem from="1559551342703" duration="7105000" />
+      <workItem from="1559551342703" duration="7210000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58991000" />
+    <option name="totallyTimeSpent" value="59096000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1006,16 +1005,6 @@
     <entry file="file://$PROJECT_DIR$/examples/migrations/0004_auto_20180521_1113.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/codingExercise/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/examples/examples_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1030,13 +1019,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/editorModule/settings/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2019.1/system/python_stubs/-2035359388/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
@@ -1046,11 +1028,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+        <state relative-caret-position="391">
+          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codingExercise/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editorModule/settings/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
