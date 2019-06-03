@@ -21,7 +21,7 @@ class ExampleDetailView(LoginRequiredMixin, DetailView):
     def post(self, *args, **kwargs):
         next_pk = int(kwargs['pk']) + 1
         # if example with id next_pk exists redirect to it else try the next id
-        if next_pk <= int(Example.objects.all().count()):
+        if next_pk <= int(Example.objects.latest(id)):
             while Example.objects.filter(id=next_pk).count() == 0:
                 next_pk += 1
             else:
