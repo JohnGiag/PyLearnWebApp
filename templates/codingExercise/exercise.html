@@ -104,9 +104,7 @@
 
 {% block scripts %}
 
-
     {% load static %}
-
 
     <script src="{% static 'js/codingExercise/brython.js' %}"></script>
     <script src="{% static 'js/codingExercise/brython_stdlib.js' %}"></script>
@@ -115,12 +113,9 @@
     <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
     <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script>
 
-
-
     <!--Run the test-->
     <script type="text/python">
         from browser import document, html
-
 
         #get test from context
         test="""{{ ex.test }}"""
@@ -131,52 +126,23 @@
         test_imports= test_imports.replace("&quot;","'")
 
         def run(ev):
-
-
             document['console'].clear()
-
             #get user code and test code and append them
-
             user_code = document["id_text"].value
             myCode = test_imports
             myCode += "\n"
             myCode += user_code
             myCode += "\n"
             myCode += test
-
-
             #run the code
             exec(myCode)
-
             #if the test is passed allow the user to progress
             if "Correct" in  document['console'].text and "Correct" not in user_code:
                 document['success-bar'].style.display='block'
-                #document['codeForm']<=html.BUTTON("Next")
-                #del document['runCode']
-
 
         #bind the run function the the button runCode
         document['runCode'].bind('click',run)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
-
-
-
-
-
 {% endblock %}
 
 

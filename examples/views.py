@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView
 
@@ -20,7 +20,13 @@ class ExampleDetailView(LoginRequiredMixin, DetailView):
 
     def post(self, *args, **kwargs):
         next_pk = int(kwargs['pk']) + 1
+        # if example with id next_pk exists redirect to it else try the next id
         if next_pk <= int(Example.objects.all().count()):
-            return HttpResponseRedirect(str(next_pk))
+            while Example.objects.filter(id=next_pk).count() == 0:
+                next_pk += 1
+            else:
+                print(Example.objects.filter(id=next_pk).count())
+                return HttpResponseRedirect(str(next_pk))
+
         else:
             return redirect('codingExercise:finished')
