@@ -18,7 +18,7 @@
             </li>
             <li class="nav-item {% if  'example' in request.path %}active{% endif %}">
                 <a class="nav-link " href="{% url 'examples:examples_list' %}"><i class="fa fa-file-code-o"
-                                                                                        aria-hidden="true"></i>&nbsp;Coding
+                                                                                  aria-hidden="true"></i>&nbsp;Coding
                     examples</a>
             </li>
             <li class="nav-item {% if  'ce' in request.path %}active{% endif %}">
@@ -47,7 +47,9 @@
 
                 <li class="nav-item {% if 'progress' in request.path %}active{% endif %}">
 
-                    <a class="nav-link " href="{% url 'progress' user.profile.id %}"> <i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;My Progress</a>
+                    <a class="nav-link " href="{% url 'progress' user.profile.id %}"> <i class="fa fa-list-alt"
+                                                                                         aria-hidden="true"></i>&nbsp;My
+                        Progress</a>
                 </li>
 
                 <li>

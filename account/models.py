@@ -29,7 +29,6 @@ class Profile(models.Model):
             completed_quizes = CompletedQuiz.objects.filter(userProfile=self)
         return completed_quizes
 
-
     def getCompletedExercises(self, flatFlag):
         if flatFlag:
             completed_exercises = CompletedExercise.objects.filter(userProfile=self).values_list('exercise_name',
@@ -47,17 +46,13 @@ class Profile(models.Model):
         self.quizAvgScore = self.totalQuizScore / tmpCompletedQuizes
 
 
-
-
-
 class CompletedQuiz(models.Model):
-    userProfile = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    userProfile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     quiz_name = models.CharField(max_length=50, blank=True, null=True)
-    score = models.CharField(max_length=10,default="0")
+    score = models.CharField(max_length=10, default="0")
     date = models.DateTimeField(default=datetime.now)
 
     def __str__(self):
-        formatted_datetime = formats.date_format(self.date, "SHORT_DATETIME_FORMAT")
         return self.quiz_name
 
     class Meta:
@@ -66,7 +61,7 @@ class CompletedQuiz(models.Model):
 
 
 class CompletedExercise(models.Model):
-    userProfile = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    userProfile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     exercise_name = models.CharField(max_length=50, blank=True, null=True)
     answer = models.TextField()
     date = models.DateTimeField(default=datetime.now)
@@ -74,5 +69,6 @@ class CompletedExercise(models.Model):
     def __str__(self):
         formatted_datetime = formats.date_format(self.date, "SHORT_DATETIME_FORMAT")
         return "Exercise: " + self.exercise_name + " on : " + str(formatted_datetime)
+
 
 import account.meta_badges

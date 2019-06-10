@@ -4,17 +4,18 @@ from django.core.exceptions import ValidationError
 
 
 class RegisterForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class' : 'form-control','placeholder':'Enter your password'}))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class' : 'form-control','placeholder':'Enter your password again'}))
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter your password'}))
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter your password again'}))
 
     class Meta:
         model = User
-        fields = ['username','email']
+        fields = ['username', 'email']
         widgets = {
 
-            'username':forms.TextInput(attrs={'class' : 'form-control','placeholder':'Enter your username'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control','placeholder':'Enter your email'}),
-
+            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your username'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter your email'}),
 
         }
 
@@ -31,5 +32,3 @@ class RegisterForm(forms.ModelForm):
         if email and User.objects.filter(email=email).exclude(username=username).exists():
             raise forms.ValidationError(u'An account has already been created with this email address')
         return email
-
-

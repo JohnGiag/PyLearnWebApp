@@ -1,7 +1,6 @@
 from django.conf.urls import url
 from .views import QuizView, QuizListView
 
-
 app_name = 'quiz'
 urlpatterns = [
     url(r'^$', QuizListView.as_view(), name='quiz_list'),

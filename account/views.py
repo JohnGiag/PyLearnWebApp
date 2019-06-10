@@ -44,8 +44,8 @@ class UserProfileView(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(UserProfileView, self).get_context_data(**kwargs)
         profileObject = Profile.objects.get(user__username=self.request.user)
-        completed_exercises = CompletedExercise.objects.filter(userProfile=profileObject).values_list('exercise_name',flat=True).distinct()
-        # context['completed_quizes'] = completed_quizes
+        completed_exercises = CompletedExercise.objects.filter(userProfile=profileObject).values_list('exercise_name',
+                                                                                                      flat=True).distinct()
         context['completed_exercises'] = completed_exercises
         return context
 

@@ -25,7 +25,7 @@ class QuizMethodTest(TestCase):
     def test_setAvgQuizScore(self):
         self.assertEqual(self.p.quizAvgScore, 0)
         self.assertEqual(self.p.num_of_copmleted_quizes, 2)
-      #  self.p.setAvgQuizSore(100)
+        self.p.setAvgQuizSore(100)
         self.p.save()
         self.assertEqual(self.p.quizAvgScore, 50)
 

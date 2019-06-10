@@ -25,8 +25,6 @@ class ExampleDetailView(LoginRequiredMixin, DetailView):
             while Example.objects.filter(id=next_pk).count() == 0:
                 next_pk += 1
             else:
-                # print(Example.objects.latest("id").id)
                 return HttpResponseRedirect(str(next_pk))
-
         else:
             return redirect('codingExercise:finished')

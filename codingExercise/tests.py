@@ -13,8 +13,7 @@ class CodingExerciseViewsTest(TestCase):
         self.user = User.objects.create_user(username='testUser', email='test@user.com', password='top_secret')
         self.profile = Profile.objects.create(user=self.user)
         self.testEx2 = Exercise.objects.create(name="testEx2", instructions="test inst", test="test test")
-        self.testEx = Exercise.objects.create(name="testEx", instructions="test inst", test="test test",
-                                              next=self.testEx2)
+        self.testEx = Exercise.objects.create(name="testEx", instructions="test inst", test="test test")
         CompletedExercise.objects.create(userProfile=self.profile,exercise_name=self.testEx.name)
 
 
@@ -70,12 +69,6 @@ class CodingExerciseViewsTest(TestCase):
         response = Finished.as_view()(request)
         self.assertEqual(response.status_code, 200)
 
-    def test_completed_already_completed_exercise(self):
-        request = self.factory.post('/ce/',{id:self.testEx.id})
-        request.user = self.user
-        # exercise that exists
-        response = CodingExerciseDetailView.as_view()(request, pk=self.testEx.id)
-        self.assertEqual(CompletedExercise.objects.filter(userProfile=self.profile).count(), 1)
 
     def test_completed_new_exercise(self):
         request = self.factory.post('/ce/',{id:self.testEx2.id})

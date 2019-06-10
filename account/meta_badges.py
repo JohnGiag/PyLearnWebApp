@@ -9,7 +9,6 @@ from .models import Profile
 ###Points collecting achievements
 
 
-
 class BasePointsCollector(MetaBadge):
     id = "BasePointsCollector"
     title = "Points Collector Base Class"
@@ -282,5 +281,3 @@ class MasterAchievementHunter(BaseAchievementHunter):
     # subtract base classes and "phantom achievement" #
     ###################################################
     target = Badge.objects.exclude(level__iexact="5").count()
-
-

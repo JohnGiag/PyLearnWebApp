@@ -18,8 +18,4 @@ class QuestionForm(forms.ModelForm):
         model = Question
         fields = '__all__'
 
-
-
-
-
 # TO DELETE
