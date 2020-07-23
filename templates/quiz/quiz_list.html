@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+    <div class="container">
+
+        {% for chapter in object_list %}
+            <div class="chapter-container">
+
+                <h1 class="card-header bg-dark text-white text-center "> {{ chapter }}</h1>
+
+
+                <ul class="list-group">
+
+                    {% for quiz in chapter.quiz_set.values %}
+
+{#                         <a href="{% url 'quiz:quiz_details' pk=quiz.id %}">{{ quiz.name }}</a>#}
+{#                       {{ user.profile.completedquiz_set.values }}#}
+{#                        {% if quiz.name ==  q.quiz_name %}#}
+{#                        {% for q in user.profile.completedquiz_set.values %}#}
+
+                            <li class="list-group-item">
+
+                                {% if quiz.name in  completed_quizes %}
+                                    <i class="fa fa-check-circle-o fa-2x" aria-hidden="true" style="color: green;"></i>
+
+                                {% else %}
+                                    <i class="fa fa-question-circle-o fa-2x" aria-hidden="true"
+                                       style="color: orange;"></i>
+                                {% endif %}&nbsp;
+                                <a href="{% url 'quiz:quiz_details' pk=quiz.id %}">{{ quiz.name }}</a>
+
+
+                            </li>
+
+{#                        {% endfor %}#}
+
+                    {% empty %}
+                        <li class="list-group-item">No Quiz yet for this chapter.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+
+
+    </div>
+
+
+{% endblock %}

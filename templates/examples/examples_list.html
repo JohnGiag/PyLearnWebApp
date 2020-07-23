@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <div class="container">
+        {% for chapter in object_list %}
+            <div class="chapter-container">
+                <h1 class="card-header bg-dark text-white text-center "> {{ chapter }}</h1>
+                <ul class="list-group">
+
+                    {% for example in chapter.example_set.values %}
+                        <li class="list-group-item">
+
+                            <a href="{% url 'examples:example' pk=example.id %}">{{ example.title }} </a>
+
+                        </li>
+
+
+
+
+                    {% empty %}
+                        <li class="list-group-item">No examples yet.</li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

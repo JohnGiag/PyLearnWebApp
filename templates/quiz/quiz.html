@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block extrahead %}
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/quiz.css' %}">
+
+
+{% endblock %}
+
+{% block title %}{{ quiz.name }}{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {% for question in quiz.question_set.all %}
+
+
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="question-text-box">{{ question.question_text|safe }}</h3>
+                        </div>
+
+
+                        <div class="quiz" id="quiz" data-toggle="buttons">
+                            <label class=" btn btn-lg btn-primary btn-block"><span class="btn-label"></span><input
+                                    type="radio"
+                                    name="{{ question.question_text }}"
+                                    value="{{ question.answer1 }}"
+                                    required
+                                    value="1">{{ question.answer1 }}
+                            </label>
+
+                            <label class=" btn btn-lg btn-primary btn-block"><span class="btn-label"></span><input
+                                    type="radio"
+                                    name="{{ question.question_text }}"
+                                    value="{{ question.answer2 }}">{{ question.answer2 }}
+                            </label>
+
+                            <label class=" btn btn-lg btn-primary btn-block"><span class="btn-label"></span><input
+                                    type="radio"
+                                    name="{{ question.question_text }}"
+                                    value="{{ question.answer3 }}">{{ question.answer3 }}
+                            </label>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            {% endfor %}
+
+            <div class="row">
+                <div class="col-sm-12 offset-sm-1 text-center">
+
+                    <input class="btn btn-lg btn-success" type="submit" value="Submit">
+
+                </div>
+
+            </div>
+            <br>
+            <br>
+
+        </form>
+
+
+    </div>
+
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+
+     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+{% endblock %}

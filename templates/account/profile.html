@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ profile.user.username }} {% endblock %}
+
+{% block content %}
+
+
+    <div class="container">
+
+
+        <div class="card">
+            <div class="card-header bg-dark  text-center text-white">
+                <h4>
+
+                    {% if user.get_username ==  profile.user.username %}
+                        My profile
+                    {% else %}
+                        {{ profile.user.username }}'s profile
+                    {% endif %}
+
+                </h4>
+            </div>
+
+
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-md-4 col-xs-12 col-sm-6 col-lg-3">
+
+                        <img alt="User Pic"
+                             src="https://aminoapps.com/static/img/user-icon-placeholder.png"
+                             id="profile-image1" class="rounded-circle img-fluid">
+
+
+                    </div>
+                    <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+                        <div class="container text-center">
+                            <h2>{{ profile.points }} points</h2>
+
+
+                        </div>
+                        <hr>
+
+                        <ul class="container details">
+                            <div class="card-header bg-dark text-center text-white">
+                                <h4>User Info</h4>
+                            </div>
+
+                            <ul>
+
+                                {% if profile.user.email %}
+                                    <li>Email : {{ profile.user.email }}</li>{% endif %}
+
+                                <li>Date Of Joining: {{ user.date_joined }}</li>
+                            </ul>
+
+
+                        </ul>
+                        <hr>
+
+                        <ul class="container details">
+                            <div class="card-header bg-dark text-center text-white">
+                                <h4>Completed Quizes</h4>
+                            </div>
+
+                            <ul>
+
+                                {% if not profile.completedquiz_set.all %}
+                                    No completed  quizes.
+
+                                {% endif %}
+
+                                {% for quiz in profile.completedquiz_set.all %}
+                                    <li>
+                                        Quiz: {{ quiz.quiz_name }} with score {{ quiz.score }}% on {{ quiz.date }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+
+
+                        </ul>
+                        <hr>
+
+                        <ul class="container details">
+                            <div class="card-header bg-dark text-center text-white accordion">
+                                <h4>Completed Exercises</h4>
+                            </div>
+
+                            <ul>
+
+                                {% for exercise in completed_exercises %}
+                                    <li>
+                                        {{ exercise }}
+                                    </li>
+                                {% endfor %}
+
+
+                            </ul>
+
+
+                        </ul>
+                        <hr>
+
+                        <ul class="container details">
+                            <div class="card-header bg-dark text-center text-white">
+                                <h4>Achievements</h4>
+                            </div>
+
+                            <ul>
+                                {% if not profile.user.badges.all %}
+                                    No achievements.
+
+                                {% endif %}
+
+                                {% for badge in profile.user.badges.all %}
+                                    {% if badge.level == '1' %}
+
+                                        <li>
+                                            <i class="fa fa-trophy level{{ badge.level }}" aria-hidden="true"></i>
+                                            {{ badge.title }} : {{ badge.description }}
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% for badge in profile.user.badges.all %}
+                                    {% if badge.level == '2' %}
+                                        <li>
+                                            <i class="fa fa-trophy level{{ badge.level }}" aria-hidden="true"></i>
+                                            {{ badge.title }} : {{ badge.description }}
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                {% for badge in profile.user.badges.all %}
+                                    {% if badge.level == '3' %}
+                                        <li>
+                                            <i class="fa fa-trophy level{{ badge.level }}" aria-hidden="true"></i>
+                                            {{ badge.title }} : {{ badge.description }}
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                {% for badge in profile.user.badges.all %}
+                                    {% if badge.level == '4' %}
+                                        <li>
+                                            <i class="fa fa-trophy level{{ badge.level }}" aria-hidden="true"></i>
+                                            {{ badge.title }} : {{ badge.description }}
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+
+
+                            </ul>
+
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block scripts %}
+
+    <script>
+        $(function () {
+            $(".accordion").accordion({
+                collapsible: true
+            });
+        });
+    </script>
+{% endblock %}
